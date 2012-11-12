@@ -1,4 +1,6 @@
-*.class
+*.log
+*.pot
 *.pyc
 *.pyo
 init_db.sql~
+local_settings.py
