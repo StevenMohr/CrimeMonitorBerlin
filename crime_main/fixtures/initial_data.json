@@ -1,0 +1,42 @@
+[
+{
+"model" : "crime_main.District",
+"pk":"1",
+"fields" : {"name" : "Marzahn-Hellersdorf"}
+},
+{
+"model" : "crime_main.District",
+"pk":"2",
+"fields" : {"name" : "Spandau"}
+},
+{
+"model" : "crime_main.District",
+"pk":"3",
+"fields" : {"name" : "Tempelhof-Schöneberg"}
+},
+{
+"model" : "crime_main.District",
+"fields" : {"name" : "Charlottenburg-Wilmersdorf"},
+"pk":"4"
+},
+{
+"model" : "crime_main.District",
+"pk":"5",
+"fields" : {"name" : "Mitte"}
+},
+{
+"model" : "crime_main.District",
+"fields" : {"name" : "Neukölln"},
+"pk":"6"
+},
+{
+"model" : "crime_main.District",
+"fields" : {"name" : "Reinickendorf"},
+"pk":"7"
+},
+{
+"model" : "crime_main.District",
+"fields" : {"name" : "Steglitz-Zehlendorf"},
+"pk":"8"
+}
+]
