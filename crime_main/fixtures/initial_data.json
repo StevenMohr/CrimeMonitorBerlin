@@ -38,5 +38,25 @@
 "model" : "crime_main.District",
 "fields" : {"name" : "Steglitz-Zehlendorf"},
 "pk":"8"
+},
+{
+"model" : "crime_main.District",
+"fields" : {"name" : "Pankow"},
+"pk":"9"
+},
+{
+"model" : "crime_main.District",
+"fields" : {"name" : "Lichtenberg"},
+"pk":"10"
+},
+{
+"model" : "crime_main.District",
+"fields" : {"name" : "Friedrichshain-Kreuzberg"},
+"pk":"11"
+},
+{
+"model" : "crime_main.District",
+"fields" : {"name" : "Treptow-Köpenick"},
+"pk":"11"
 }
 ]

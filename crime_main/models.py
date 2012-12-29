@@ -1,4 +1,5 @@
 from django.contrib.gis.db import models
+from django.db.models.fields.related import ForeignKey
 
 # Create your models here.
 
@@ -14,4 +15,19 @@ class Crime(models.Model):
     
 class District(models.Model):
     name = models.CharField(max_length = 200, unique=True)
-    area = models.PolygonField(blank=True, null=True)
+    area = ForeignKey('OSMPolygon')
+    
+    def __unicode__(self):
+        return self.name
+    
+
+class OSMPolygon:
+    osm_id = models.AutoField(primary_key=True)
+    way = models.PolygonField()
+    
+    class Meta:
+        db_table = "planet_osm_polygon"
+        managed = False
+        
+    objects = models.GeoManager()
+

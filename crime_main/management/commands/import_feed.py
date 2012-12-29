@@ -20,11 +20,12 @@ class Command(BaseCommand):
             title_parts = entry.title.split(' - ')
             if len(title_parts) > 1:
                 title = title_parts[0]
-                district_literal = title_parts[-1]
-                crime = Crime()
+                district_literal = title_parts[-1].strip()
+                pub_date = datetime.datetime(*entry.published_parsed[:7], tzinfo=tz.gettz("Europe/Berlin"))
+                crime = Crime.objects.get_or_create(full_text_link=entry.link, title=title, pub_date=pub_date)[0]
                 crime.title = title
                 crime.full_text_link = entry.link
-                crime.pub_date = datetime.datetime(*entry.published_parsed[:7], tzinfo=tz.gettz("Europe/Berlin"))
+                pub_date = datetime.datetime(*entry.published_parsed[:7], tzinfo=tz.gettz("Europe/Berlin"))
                 try:
                     crime.save()
                 except IntegrityError:
@@ -37,13 +38,15 @@ class Command(BaseCommand):
                 if district is not None:
                     crime.districts.add(district)
                 else:
+                    
                     districts_literal = district_literal.split('/')
+                    
                     for district_literal in districts_literal:
                         try:
-                            district = District.objects.get(name = district_literal)
+                            district = District.objects.get(name = district_literal.strip())
                             crime.districts.add(district)
                         except District.DoesNotExist:
-                            print "{} not found...".format(district_literal)
+                            print u"'{}' not found...".format(district_literal)
                 crime.save()
                 transaction.commit()
                 
