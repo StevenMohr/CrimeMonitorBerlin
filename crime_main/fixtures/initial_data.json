@@ -66,7 +66,7 @@
 "model" : "crime_main.District",
 "fields" : {"name" : "Friedrichshain-Kreuzberg",
 "area_id" : "-55764"},
-"pk":"11"
+"pk":"12"
 },
 {
 "model" : "crime_main.District",
