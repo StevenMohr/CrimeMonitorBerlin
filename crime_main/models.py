@@ -15,19 +15,9 @@ class Crime(models.Model):
     
 class District(models.Model):
     name = models.CharField(max_length = 200, unique=True)
-    area = ForeignKey('OSMPolygon')
-    
+    area_id = models.IntegerField()
+    way = models.GeometryField(blank=True, null=True)
+
     def __unicode__(self):
         return self.name
-    
-
-class OSMPolygon:
-    osm_id = models.AutoField(primary_key=True)
-    way = models.PolygonField()
-    
-    class Meta:
-        db_table = "planet_osm_polygon"
-        managed = False
-        
-    objects = models.GeoManager()
 

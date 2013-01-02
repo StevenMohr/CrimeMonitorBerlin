@@ -2,61 +2,76 @@
 {
 "model" : "crime_main.District",
 "pk":"1",
-"fields" : {"name" : "Marzahn-Hellersdorf"}
+"fields" : {"name" : "Marzahn-Hellersdorf",
+            "area_id" : "-164712"
+}
 },
 {
 "model" : "crime_main.District",
 "pk":"2",
-"fields" : {"name" : "Spandau"}
+"fields" : {"name" : "Spandau",
+    "area_id" : "-16343"}
 },
 {
 "model" : "crime_main.District",
 "pk":"3",
-"fields" : {"name" : "Tempelhof-Schöneberg"}
+"fields" : {"name" : "Tempelhof-Schöneberg",
+             "area_id" : "-158437"
+            }
 },
 {
 "model" : "crime_main.District",
-"fields" : {"name" : "Charlottenburg-Wilmersdorf"},
+"fields" : {"name" : "Charlottenburg-Wilmersdorf",
+    "area_id" : "-404538"
+},
 "pk":"4"
 },
 {
 "model" : "crime_main.District",
 "pk":"5",
-"fields" : {"name" : "Mitte"}
+"fields" : {"name" : "Mitte",
+"area_id": "-16347"}
 },
 {
 "model" : "crime_main.District",
-"fields" : {"name" : "Neukölln"},
+"fields" : {"name" : "Neukölln",
+"area_id" :"-162902"},
 "pk":"6"
 },
 {
 "model" : "crime_main.District",
-"fields" : {"name" : "Reinickendorf"},
+"fields" : {"name" : "Reinickendorf",
+"area_id" : "-16334"},
 "pk":"7"
 },
 {
 "model" : "crime_main.District",
-"fields" : {"name" : "Steglitz-Zehlendorf"},
+"fields" : {"name" : "Steglitz-Zehlendorf",
+"area_id" : "-55734" },
 "pk":"8"
 },
 {
 "model" : "crime_main.District",
-"fields" : {"name" : "Pankow"},
+"fields" : {"name" : "Pankow",
+"area_id" : "-164723"},
 "pk":"9"
 },
 {
 "model" : "crime_main.District",
-"fields" : {"name" : "Lichtenberg"},
+"fields" : {"name" : "Lichtenberg",
+"area_id" : "-404554"},
 "pk":"10"
 },
 {
 "model" : "crime_main.District",
-"fields" : {"name" : "Friedrichshain-Kreuzberg"},
+"fields" : {"name" : "Friedrichshain-Kreuzberg",
+"area_id" : "-55764"},
 "pk":"11"
 },
 {
 "model" : "crime_main.District",
-"fields" : {"name" : "Treptow-Köpenick"},
+"fields" : {"name" : "Treptow-Köpenick",
+"area_id" : "-55754"},
 "pk":"11"
 }
 ]
