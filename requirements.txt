@@ -1,0 +1,7 @@
+fabric
+django>=1.4.3
+geopy
+django_nose
+feedparser
+psycopg2
+python-dateutil
