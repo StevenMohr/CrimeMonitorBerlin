@@ -38,7 +38,7 @@ USE_I18N = True
 
 # If you set this to False, Django will not format dates, numbers and
 # calendars according to the current locale.
-USE_L10N = True
+USE_L10N = False
 
 # If you set this to False, Django will not use timezone-aware datetimes.
 USE_TZ = True
@@ -117,11 +117,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.gis', 
     'django_nose',
-    'crime_main',
-    # Uncomment the next line to enable the admin:
-    'django.contrib.admin',
-    # Uncomment the next line to enable admin documentation:
-    #'django.contrib.admindocs',
+    'crime_main'
 )
 
 #TEST_RUNNER = 'django.contrib.gis.tests.GeoDjangoTestSuiteRunner'
