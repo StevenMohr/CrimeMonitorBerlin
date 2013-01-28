@@ -30,8 +30,6 @@ to_district_vector = function(wkt, ratio) {
   if (ratio > 0.25 ){
     feature.style = style_red2;
     }
-
-
   return feature;
 };
 
