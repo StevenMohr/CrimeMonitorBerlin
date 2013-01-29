@@ -22,7 +22,7 @@ class Command(BaseCommand):
                 title = title_parts[0]
                 district_literal = title_parts[-1].strip()
                 pub_date = datetime.datetime(*entry.published_parsed[:7], tzinfo=tz.gettz("Europe/Berlin"))
-                crime = Crime.objects.get_or_create(full_text_link=entry.link, title=title, pub_date=pub_date)[0]
+                crime = Crime.objects.get_or_create(full_text_link=entry.link)[0]
                 crime.title = title
                 crime.full_text_link = entry.link
                 pub_date = datetime.datetime(*entry.published_parsed[:7], tzinfo=tz.gettz("Europe/Berlin"))
