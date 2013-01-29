@@ -11,5 +11,12 @@ class MainView(ListView):
 
     def get_context_data(self, **kwargs):
         arguments = kwargs
-        kwargs['districts'] = District.objects.all()
+        districts = District.objects.all()
+        kwargs['districts'] = districts
+        geo_districts = [x.way for x in districts ]
+        berlin_borders = geo_districts[0]
+        for geo in geo_districts[1:]:
+            berlin_borders = berlin_borders.union(geo)
+        kwargs['center'] = berlin_borders.centroid
+        kwargs['crimes'] = Crime.objects.all().order_by('pub_date')
         return arguments

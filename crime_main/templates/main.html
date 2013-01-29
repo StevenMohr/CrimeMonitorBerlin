@@ -1,27 +1,60 @@
 {% load static %}
+{% load list %}
 <!DOCTYPE html>
 <html>
 <head>
     <title>CrimeMonitor</title>
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link href="{% static "css/main.css" %}" rel="stylesheet">
+    <script src="//code.jquery.com/jquery.min.js"></script>
     <script src="http://openlayers.org/api/OpenLayers.js"></script>
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"></script>
+
     <script src="{% static "js/map.js" %}"></script>
     <script>
         function init() {
             var map = new OpenLayers.Map({'div':'map'});
             var osmLayer = new OpenLayers.Layer.OSM();
-
-
-        var vectors = new OpenLayers.Layer.Vector("Vector Layer");
+            var vectors = new OpenLayers.Layer.Vector("Vector Layer");
         {% for district in districts %}
             vectors.addFeatures(to_district_vector('{{ district.polygon_wkt }}', {{ district.crime_ratio }}));
         {% endfor %}
 
         map.addLayers([osmLayer, vectors]);
-        map.setCenter(new OpenLayers.LonLat({{districts.0.way.centroid.x}},{{districts.0.way.centroid.y}}).transform('EPSG:4326', 'EPSG:900913'), 11);
+        map.setCenter(new OpenLayers.LonLat({{center.x}},{{center.y}}).transform('EPSG:4326', 'EPSG:900913'), 11);
         }
     </script>
 </head>
 <body onload="init();">
-<div style="width:1100px; height:900px" id="map"></div>
+<div class="container">
+    <div class="row">
+        <h3>CrimeMonitor Berlin</h3>
+    <ul class="nav nav-pills pull-right">
+        <li class="active" ><a data-toggle="tab" href="#map-tab">Karte</a></li>
+        <li><a href="#table-tab" data-toggle="tab">Tabelle</a></li>
+    </ul>
+    </div>
+    <div class="tab-content">
+        <div class="tab-pane active" id="map-tab">
+            <div class ="map" id="map"></div>
+        </div>
+        <div class="tab-pane" id="table-tab">
+            <table class="table table-bordered table-striped table-condensed table-hover">
+                <tr><th>Titel</th>
+                    <th>Datum</th>
+                    <th>Bezirke</th>
+                    <th></th></tr>
+                {% for crime in crimes %}
+                    <tr><td>{{ crime.title }}</td>
+                    <td>{{ crime.pub_date }}</td>
+                    <td>{% pretty_list crime.districts.all %}</td>
+                    <td><a class="btn btn-info" href="{{ crime.full_text_link }}"><i class=" icon-info-sign"></i>Zum Volltext</a></td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+
+</div>
 </body>
 </html>
