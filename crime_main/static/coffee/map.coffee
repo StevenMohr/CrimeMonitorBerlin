@@ -5,15 +5,15 @@ to_district_vector = (wkt, ratio) ->
   feature = format.read wkt
   if ratio < 0.05
     feature.style = style_green
-  else if (ratio > 0.05)
+  if (ratio > 0.05)
     feature.style = style_yellow
-  else if ratio > 0.10
+  if ratio > 0.10
     feature.style = style_orange
-  else if ratio > 0.15
+  if ratio > 0.15
     feature.style = style_red
-  else if (ratio > 0.20)
+  if (ratio > 0.20)
     feature.style = style_red1
-  else if ratio > 0.25
+  if ratio > 0.25
     feature.style = style_red2
   feature
 
